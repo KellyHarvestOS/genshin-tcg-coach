@@ -1,0 +1,15 @@
+{
+ "source": "https://genshin-impact.fandom.com/ru/wiki/Священный_призыв_семерых/Список_карт",
+ "rules_source": "https://genshin-impact.fandom.com/wiki/Genius_Invokation_TCG/Rules",
+ "fetched_at": "2026-09-29T11:47:08+00:00",
+ "characters": 174,
+ "skills": 567,
+ "skills_fully_modelled": 436,
+ "summons": 82,
+ "summons_modelled": 76,
+ "statuses": 144,
+ "statuses_modelled": 74,
+ "action_cards": 342,
+ "action_cards_modelled": 120,
+ "reactions": 11
+}

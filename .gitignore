@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+logs/
+debug/screenshots/*
+!debug/screenshots/.gitkeep
+data/matches/*
+!data/matches/.gitkeep
+gcoach/web/fonts/*.woff2
+gcoach/web/fonts/*.ttf
+gcoach/web/img/cards/
+
+# voice assistant: local settings (may hold an API key) and audio cache
+data/voice.json
+data/tts_cache/
+
+# digit templates rendered from the game's font (python -m gcoach.tools.make_digits)
+assets/ui/digits/

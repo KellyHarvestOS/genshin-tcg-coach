@@ -1,0 +1,77 @@
+{
+ "melt": {
+  "name_en": "Melt",
+  "text": "Deal +2 DMG for this instance",
+  "bonus": 2
+ },
+ "vaporize": {
+  "name_en": "Vaporize",
+  "text": "Deal +2 DMG for this instance",
+  "bonus": 2
+ },
+ "overloaded": {
+  "name_en": "Overloaded",
+  "text": "Deal +2 DMG for this instance; when targeting an active character, the target will be forcibly switched to the next character",
+  "bonus": 2,
+  "force_switch_next": true
+ },
+ "superconduct": {
+  "name_en": "Superconduct",
+  "text": "Deal +1 DMG for this instance, deal 1 Piercing DMG to all opposing characters except the target",
+  "bonus": 1,
+  "piercing_others": 1
+ },
+ "electro_charged": {
+  "name_en": "Electro-Charged",
+  "text": "Deal +1 DMG for this instance, deal 1 Piercing DMG to all opposing characters except the target",
+  "bonus": 1,
+  "piercing_others": 1
+ },
+ "frozen": {
+  "name_en": "Frozen",
+  "text": "Deal +1 DMG for this instance. The target character receives the Frozen status: The character cannot use Skills (Lasts until the end of this Round). When receiving Pyro or Physical DMG, the character receives +2 DMG and removes this status in advance.",
+  "bonus": 1,
+  "frozen": true,
+  "frozen_break_bonus": 2
+ },
+ "swirl": {
+  "name_en": "Swirl",
+  "text": "Deal 1 Cryo DMG to all opposing characters except the target",
+  "swirl_damage": 1
+ },
+ "crystallize": {
+  "name_en": "Crystallize",
+  "text": "Deal +1 DMG for this instance, grant 1 Shield point to your active character (Shield can be stacked. Max 2 points).",
+  "bonus": 1,
+  "shield": 1,
+  "shield_max": 2
+ },
+ "burning": {
+  "name_en": "Burning",
+  "text": "Deal +1 DMG for this instance and create a [Burning Flame]: End Phase: Deal 1 Pyro DMG. (1 Usage. Max 2 stacks)",
+  "bonus": 1,
+  "summon": {
+   "damage": 1,
+   "usages": 1,
+   "stack_max": 2
+  }
+ },
+ "bloom": {
+  "name_en": "Bloom",
+  "text": "Deal +1 DMG for this instance and create a [Dendro Core]: When you deal Pyro DMG or Electro DMG to an opposing active character, DMG dealt +2. (1 Usage)",
+  "bonus": 1,
+  "core": {
+   "bonus": 2,
+   "usages": 1
+  }
+ },
+ "quicken": {
+  "name_en": "Quicken",
+  "text": "Deal +1 DMG for this instance and create a [Catalyzing Field]: When you deal Electro DMG or Dendro DMG to an opposing active character, DMG dealt +1. (2 Usages)",
+  "bonus": 1,
+  "field": {
+   "bonus": 1,
+   "usages": 2
+  }
+ }
+}

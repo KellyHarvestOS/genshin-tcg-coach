@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fffaf0' stroke='%23c9a86a' stroke-width='2'/%3E%3Cpath d='M16 3.5c.9 7.4 5.1 11.6 12.5 12.5-7.4.9-11.6 5.1-12.5 12.5C15.1 21.1 10.9 16.9 3.5 16 10.9 15.1 15.1 10.9 16 3.5z' fill='%23c9a86a'/%3E%3C/svg%3E">
+</head>
+<body>
+<!-- Original Genshin-style icon set (drawn for this app, not extracted game assets) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbeec9"/><stop offset=".55" stop-color="#d9bb7f"/><stop offset="1" stop-color="#a98548"/></linearGradient>
+    <linearGradient id="gGoldRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dfae"/><stop offset=".5" stop-color="#c9a86a"/><stop offset="1" stop-color="#8f6d35"/></linearGradient>
+    <radialGradient id="gStarCore" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#fff4d6"/><stop offset="1" stop-color="#e7c98a"/></radialGradient>
+
+    <!-- elements: base silhouette in currentColor + white highlight layers -->
+    <symbol id="el-pyro" viewBox="0 0 24 24">
+      <path d="M12 1.6c.8 3.1 4.4 5 5.6 8.6 1.4 4.3-1 10.2-5.6 10.2S5 14.9 6.4 10.8c.6-1.9 1.9-3 2.8-4 .1 1.7.8 2.9 1.9 3.5-.3-3.7.1-6.2.9-8.7z" fill="currentColor"/>
+      <path d="M12 10.9c.9 1.7 2.8 2.6 2.8 4.9 0 1.8-1.3 3.2-2.8 3.2s-2.8-1.4-2.8-3.2c0-1.4 1-2.2 1.6-2.9.1.8.4 1.3 1 1.5-.2-1.4 0-2.5.2-3.5z" fill="#fff" opacity=".6"/>
+      <path d="M8.2 11.6c-.6 1.3-.7 2.7-.2 4" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".45" fill="none"/>
+    </symbol>
+    <symbol id="el-hydro" viewBox="0 0 24 24">
+      <path d="M12 1.8C9.1 6 5.4 9.6 5.4 14.2a6.6 6.6 0 0 0 13.2 0C18.6 9.6 14.9 6 12 1.8z" fill="currentColor"/>
+      <path d="M7.9 14.5c1.4-1.3 2.8-1.3 4.1 0s2.8 1.3 4.1 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".8" fill="none"/>
+      <path d="M9.3 17.4c.9-.8 1.8-.8 2.7 0s1.8.8 2.7 0" stroke="#fff" stroke-width="1.3" stroke-linecap="round" opacity=".5" fill="none"/>
+      <path d="M9.4 7.9c-.9 1.2-1.5 2.2-1.9 3.3" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".55" fill="none"/>
+    </symbol>
+    <symbol id="el-electro" viewBox="0 0 24 24">
+      <path d="M12 1.5 22 12 12 22.5 2 12z" fill="currentColor" opacity=".28"/>
+      <path d="M12 4.2 19.3 12 12 19.8 4.7 12z" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/>
+      <path d="M13.6 4.3 7.4 13.1h4.2l-1.2 6.6 6.4-9.1h-4.3z" fill="currentColor"/>
+      <path d="M13.6 4.3 11.1 9.9" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".6"/>
+    </symbol>
+    <symbol id="el-cryo" viewBox="0 0 24 24">
+      <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none">
+        <path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/>
+        <path d="M9.4 3.6 12 5.8l2.6-2.2M9.4 20.4 12 18.2l2.6 2.2M3.6 10.3l3.3-.6-1.1-3.2M20.4 13.7l-3.3.6 1.1 3.2M3.6 13.7l3.3.6-1.1 3.2M20.4 10.3l-3.3-.6 1.1-3.2"/>
+      </g>
+      <path d="M12 9.2 14.4 10.6v2.8L12 14.8l-2.4-1.4v-2.8z" fill="currentColor"/>
+      <path d="M12 9.9 13.8 11" stroke="#fff" stroke-width=".9" opacity=".7"/>
+    </symbol>
+    <symbol id="el-anemo" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round">
+        <path d="M3.5 8.6h9.2a3 3 0 1 0-3-3"/>
+        <path d="M2.5 12.6h14.6a3.2 3.2 0 1 1-3.2 3.2"/>
+        <path d="M4.5 16.8h4.6a2.3 2.3 0 1 1-2.3 2.3"/>
+      </g>
+      <circle cx="19.5" cy="6.5" r="1.3" fill="currentColor" opacity=".6"/>
+    </symbol>
+    <symbol id="el-geo" viewBox="0 0 24 24">
+      <path d="M12 1.8 19.4 7v10L12 22.2 4.6 17V7z" fill="currentColor"/>
+      <path d="M12 1.8v20.4M4.6 7 12 12l7.4-5M4.6 17 12 12l7.4 5" stroke="#fff" stroke-width="1" opacity=".55" fill="none"/>
+      <path d="M12 1.8 4.6 7 12 12z" fill="#fff" opacity=".28"/>
+    </symbol>
+    <symbol id="el-dendro" viewBox="0 0 24 24">
+      <path d="M19.8 3.2C9.4 3.2 4.3 8.8 4.3 15c0 1.8.5 3.3 1.2 4.6 1.6-4.4 4.8-7.6 8.8-9.6-3.4 2.6-5.6 5.8-6.6 9.4 1 .5 2.2.8 3.4.8 6.7 0 9.8-7.1 8.7-17z" fill="currentColor"/>
+      <path d="M8.6 16.4c2.2-3.4 4.8-5.6 7.7-7" stroke="#fff" stroke-width="1.1" stroke-linecap="round" opacity=".6" fill="none"/>
+      <path d="M5.8 21.6c-.6-1.3-1.1-2.2-2.3-2.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="el-physical" viewBox="0 0 24 24">
+      <path d="M20.5 2.5 21.5 3.5 11.2 13.8 9.2 11.8z" fill="currentColor"/>
+      <path d="M20.5 2.5 21.5 3.5l-.6 3.1-3.7 3.7-3.5-3.5 3.7-3.7z" fill="currentColor"/>
+      <path d="M6.6 11.8 12.2 17.4 11 18.6 9.6 17.2 5.4 21.4 2.6 18.6 6.8 14.4 5.4 13z" fill="currentColor"/>
+      <path d="M17.6 4.5l-6.9 6.9" stroke="#fff" stroke-width=".9" opacity=".6"/>
+    </symbol>
+    <symbol id="el-omni" viewBox="0 0 24 24">
+      <path d="M12 1.2 13.9 8.2 20.9 5.2 16 11l6.8 1-6.8 1 4.9 5.8-7-3-1.9 7-1.9-7-7 3L8 13l-6.8-1L8 11 3.1 5.2l7 3z" fill="currentColor"/>
+      <circle cx="12" cy="12" r="2.6" fill="#fff" opacity=".8"/>
+    </symbol>
+
+    <!-- game-concept icons -->
+    <symbol id="ic-star4" viewBox="0 0 24 24"><path d="M12 1c1 6.6 4.4 10 11 11-6.6 1-10 4.4-11 11-1-6.6-4.4-10-11-11C7.6 11 11 7.6 12 1z" fill="currentColor"/></symbol>
+    <symbol id="ic-hp" viewBox="0 0 24 24"><path d="M12 2.5c3 4 6.5 7.3 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 9.8 9 6.5 12 2.5z" fill="currentColor"/><path d="M12 10.5v6M9 13.5h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-energy" viewBox="0 0 24 24"><path d="M12 2c.8 5.2 3.2 7.6 8 8.4-4.8.8-7.2 3.2-8 8.4-.8-5.2-3.2-7.6-8-8.4 4.8-.8 7.2-3.2 8-8.4z" fill="currentColor"/><circle cx="19" cy="18.5" r="1.6" fill="currentColor" opacity=".6"/></symbol>
+    <symbol id="ic-dice" viewBox="0 0 24 24"><path d="M8 2h8l6 6v8l-6 6H8l-6-6V8z" fill="currentColor"/><path d="M8 2 12 8l4-6M2 8h20M12 8v14M2 16h20" stroke="#fff" stroke-width="1" opacity=".45" fill="none"/></symbol>
+    <symbol id="ic-cards" viewBox="0 0 24 24"><rect x="8" y="3" width="11" height="15.5" rx="2" fill="currentColor" opacity=".45" transform="rotate(9 13.5 10.7)"/><rect x="4.5" y="5" width="11" height="15.5" rx="2" fill="currentColor"/><path d="M10 9.5l1.1 2.4 2.4 1.1-2.4 1.1L10 16.5l-1.1-2.4-2.4-1.1 2.4-1.1z" fill="#fff" opacity=".85"/></symbol>
+    <symbol id="ic-sword" viewBox="0 0 24 24"><use href="#el-physical"/></symbol>
+    <symbol id="ic-skill" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 5.5c.6 3.8 2.7 5.9 6.5 6.5-3.8.6-5.9 2.7-6.5 6.5-.6-3.8-2.7-5.9-6.5-6.5 3.8-.6 5.9-2.7 6.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="ic-burst" viewBox="0 0 24 24"><path d="M12 1.5l2.2 5.6 5.9-1.3-3.4 5 4.3 4.2-6 .5-.8 6-3.4-4.9L5.5 19l1.5-5.8L1.7 10.6 7.5 9 7 3z" fill="currentColor"/><circle cx="12" cy="11.5" r="3" fill="#fff" opacity=".75"/></symbol>
+    <symbol id="ic-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-tune" viewBox="0 0 24 24"><path d="M9 3h6l4 4v6l-4 4H9l-4-4V7z" fill="currentColor" opacity=".35"/><path d="M8.5 20.5a8.5 8.5 0 0 0 11-7M15.5 3.5a8.5 8.5 0 0 0-11 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M19.5 13.5l.2 3.3M4.5 10.5l-.2-3.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-flag" viewBox="0 0 24 24"><path d="M5 21V3.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M5.5 4h11.5l-2.5 4 2.5 4H5.5z" fill="currentColor"/></symbol>
+    <symbol id="ic-hourglass" viewBox="0 0 24 24"><path d="M6 2.5h12M6 21.5h12M7 2.5c0 5 5 6.5 5 9.5s-5 4.5-5 9.5M17 2.5c0 5-5 6.5-5 9.5s5 4.5 5 9.5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/><path d="M9 20c.8-2.2 2-3 3-3.5 1 .5 2.2 1.3 3 3.5z" fill="currentColor"/></symbol>
+    <symbol id="ic-summon" viewBox="0 0 24 24"><path d="M12 3.5c4.4 0 7 3 7 6.8 0 5-4.2 7.2-7 10.2-2.8-3-7-5.2-7-10.2 0-3.8 2.6-6.8 7-6.8z" fill="currentColor"/><circle cx="9.5" cy="10" r="1.4" fill="#fff"/><circle cx="14.5" cy="10" r="1.4" fill="#fff"/><path d="M4 5.5 2.5 4M20 5.5 21.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 2.5 19.5 5.3v6.2c0 4.6-3.2 8.3-7.5 9.9-4.3-1.6-7.5-5.3-7.5-9.9V5.3z" fill="currentColor"/><path d="M12 5.2v13.3" stroke="#fff" stroke-width="1" opacity=".5"/></symbol>
+    <symbol id="ic-crown" viewBox="0 0 24 24"><path d="M3 18.5 2 7.5l5.2 4L12 4l4.8 7.5L22 7.5l-1 11z" fill="currentColor"/><path d="M3.5 21h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-camera" viewBox="0 0 24 24"><path d="M4 7.5h3.2L9 5h6l1.8 2.5H20v11.5H4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" stroke="currentColor" stroke-width="1.7" fill="none"/></symbol>
+    <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="12" cy="12" r="2.8" fill="currentColor"/></symbol>
+    <symbol id="ic-image" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="m5.5 17 4.5-5 3.2 3.4 2.3-2.4 3 4" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><circle cx="15.5" cy="9" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="ic-team" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M3 19c.7-3.2 2.9-5 6-5s5.3 1.8 6 5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/><path d="M15.5 5.8a3 3 0 1 1 .8 5.8M18 14.3c1.6.6 2.6 2 3 4.2" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ic-more" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="18.5" cy="12" r="1.8" fill="currentColor"/></symbol>
+    <symbol id="ic-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95M19 4.5v3.8h-3.8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 2.5l1.9 6.1L20 10.5l-6.1 1.9L12 18.5l-1.9-6.1L4 10.5l6.1-1.9z" fill="currentColor"/><path d="M18.5 16l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="ic-pin" viewBox="0 0 24 24"><path d="M9 3.5h6l-1 5 3.5 3.5v1.5H6.5V12L10 8.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M12 13.5V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="ic-bug" viewBox="0 0 24 24"><rect x="7.5" y="7" width="9" height="12" rx="4.5" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M12 7v12M4 11h3.5M16.5 11H20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="ic-warn" viewBox="0 0 24 24"><path d="M12 3 22 20H2z" fill="currentColor"/><path d="M12 9.5v5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="#fff"/></symbol>
+    <symbol id="ic-voice" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ornament" viewBox="0 0 160 14"><path d="M0 7h60M100 7h60" stroke="currentColor" stroke-width=".9"/><path d="M80 0c.7 4.2 2.8 6.3 7 7-4.2.7-6.3 2.8-7 7-.7-4.2-2.8-6.3-7-7 4.2-.7 6.3-2.8 7-7z" fill="currentColor"/><path d="M64 7l3-3 3 3-3 3zM90 7l3-3 3 3-3 3z" fill="none" stroke="currentColor" stroke-width=".9"/><circle cx="58" cy="7" r="1.2" fill="currentColor"/><circle cx="102" cy="7" r="1.2" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<div class="sky" aria-hidden="true"></div>
+<canvas id="sparkles" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="brand">
+    <img class="wordmark" src="/static/img/wordmark.png" alt="Card Coach" draggable="false">  </div>
+  <div class="match-pills" id="matchPills"></div>
+  <div class="partner">
+  <nav class="rail" aria-label="Управление">
+    <button class="rbtn toggle" id="btnWatch" data-tip="Слежение: анализировать экран после каждого вашего хода"><svg><use href="#ic-eye"/></svg><img class="rart" src="/static/img/rail/watch.png" alt="" draggable="false" onload="this.parentNode.classList.add('has-art')" onerror="this.remove()"></button>
+    <button class="rbtn toggle" id="btnVoice" data-tip="Голос: говорить советы вслух (F8 — повторить)"><svg><use href="#ic-voice"/></svg><img class="rart" src="/static/img/rail/voice.png" alt="" draggable="false" onload="this.parentNode.classList.add('has-art')" onerror="this.remove()"></button>
+    <div class="menu-wrap">
+      <button class="rbtn" id="btnMenu" aria-label="Меню" data-tip="Меню"><svg><use href="#ic-more"/></svg><img class="rart" src="/static/img/rail/menu.png" alt="" draggable="false" onload="this.parentNode.classList.add('has-art')" onerror="this.remove()"></button>
+      <div class="menu" id="menu" hidden>
+        <div class="menu-label">Демо-партии</div>
+        <div id="menuDemos"></div>
+        <div class="menu-sep"></div>
+        <button data-act="setup">Настроить партию…</button>
+        <button data-act="voice">Голос и озвучка…</button>
+        <button data-act="explain">Почему этот ход (AI)</button>
+        <button data-act="state">Состояние (JSON)</button>
+        <button data-act="end">Завершить партию и разобрать</button>
+        <button data-act="debug">Отладка</button>
+      </div>
+    </div>
+  </nav>
+  <img class="colab" src="/static/img/colab.png" alt="Genshin Impact × KellyHarvest" draggable="false"></div>
+</header>
+
+
+<div class="banner" id="banner" hidden></div>
+
+<main class="layout" id="layout"></main>
+
+<section class="debug-drawer" id="debug" hidden>
+  <div class="debug-head">
+    <div class="tabs" id="debugTabs">
+      <button data-tab="shot" class="active">Скриншот</button>
+      <button data-tab="conf">Распознавание</button>
+      <button data-tab="cand">Кандидаты</button>
+      <button data-tab="tree">Дерево планов</button>
+      <button data-tab="log">Журнал</button>
+      <button data-tab="json">GameState</button>
+    </div>
+    <button class="btn ghost icon-only" id="btnDebugClose" aria-label="Закрыть"><svg><use href="#ic-close"/></svg></button>
+  </div>
+  <div class="debug-body" id="debugBody"></div>
+</section>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="modalTitle"></h3><button class="btn ghost icon-only" id="modalClose" aria-label="Закрыть"><svg><use href="#ic-close"/></svg></button></div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<div class="tooltip" id="tooltip" hidden></div>
+<datalist id="dlChars"></datalist>
+<datalist id="dlCards"></datalist>
+<script src="/static/app.js"></script>
+</body>
+</html>

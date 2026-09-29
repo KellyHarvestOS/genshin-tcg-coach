@@ -1,0 +1,12 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+numpy>=1.26
+opencv-python-headless>=4.9
+pillow>=10.0
+mss>=9.0
+pytest>=8.0
+# optional
+anthropic>=1.0        # AI_PROVIDER = "claude"
+pytesseract>=0.3.10   # OCR_ENGINE = "tesseract" (needs tesseract.exe installed)
+pywebview>=5.0        # desktop window
+edge-tts>=7.0         # spoken advice: free Microsoft neural voices

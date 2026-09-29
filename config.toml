@@ -1,0 +1,55 @@
+# Card Coach — configuration.
+# The coach only ADVISES. It never sends input to the game (no clicks, keys or memory access).
+
+[capture]
+MONITOR = 1                 # 1 = primary monitor (see the monitor list in the UI)
+SCREEN_REGION = []          # [left, top, width, height] in pixels; empty = whole monitor
+SCREENSHOT_INTERVAL = 1.0   # seconds between screenshots while "watching" is on
+CHANGE_THRESHOLD = 0.02     # fraction of changed pixels that counts as a new frame
+STABLE_FRAMES = 2           # frames that must match before a frame is analysed (animations)
+
+[vision]
+LAYOUT = "assets/layouts/default_16x9.json"
+TEMPLATE_THRESHOLD = 0.78
+OCR_ENABLED = true
+OCR_ENGINE = "auto"         # auto | tesseract | templates | none
+TESSERACT_CMD = ""          # full path to tesseract.exe if it is not on PATH
+
+[coach]
+CONFIDENCE_THRESHOLD = 0.6  # below this the coach refuses to recommend
+DRY_RUN = true              # always true: the project has no way to act in the game
+DEBUG_MODE = true
+SAVE_DEBUG_IMAGES = true
+
+[planner]
+PLANNING_DEPTH = 3
+BEAM_WIDTH = 10
+OPPONENT_WIDTH = 4
+LETHAL_DEPTH = 5            # depth used automatically in critical positions
+ADAPTIVE_DEPTH = true
+TIME_BUDGET_MS = 2500
+ROBUST_LAMBDA = 0.6         # 1.0 = pure minimax, 0.0 = pure expectation over opponent replies
+
+[ai]
+AI_PROVIDER = "mock"        # mock | claude | local
+AI_MODEL = "claude-opus-5-5"
+AI_EFFORT = "low"
+AI_TIMEOUT = 30
+LOCAL_URL = "http://127.0.0.1:11434"
+LOCAL_MODEL = "llama3.1"
+
+[voice]
+# Spoken advice. "edge:<voice>" = free Microsoft neural voice (edge-tts, no key);
+# "google:<voice>" = Google Cloud Chirp 3 HD (needs GOOGLE_TTS_API_KEY). Also set in the app: menu → «Голос».
+TTS_VOICE = "edge:ru-RU-SvetlanaNeural"
+TTS_RATE = 1.1
+GOOGLE_TTS_API_KEY = ""       # or the GCOACH_GOOGLE_TTS_API_KEY environment variable
+
+[server]
+HOST = "127.0.0.1"
+PORT = 8765
+OPEN_BROWSER = true
+
+[logging]
+LOG_LEVEL = "INFO"          # ERROR | WARN | INFO | DEBUG | TRACE
+LOG_FILE = "logs/coach.log"
